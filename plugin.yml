@@ -1,0 +1,39 @@
+name: Camera
+main: org.slabserver.plugin.camera.Camera
+version: 0.0.1-SNAPSHOT
+api-version: 1.15
+commands:
+  c:
+    description: Toggles "camera mode". 
+      Camera mode sets your gamemode to spectator mode when enabled,
+      and restores your previous location and gamemode when disabled.
+    usage: /c
+    permission: camera.togglecamera
+    permission-message: You don't have permission camera.togglecamera
+  s:
+    description: Toggles your gamemode between spectator and your previous gamemode.
+    usage: /s
+    permission: camera.togglespectator
+    permission-message: You don't have permission camera.togglespectator
+  fly:
+    description: Toggles flight.
+    usage: /fly
+    permission: camera.toggleflight
+    permission-message: You don't have permission camera.toggleflight
+
+permissions:
+  camera.*:
+    description: Gives access to all camera commands.
+    children:
+      camera.togglecamera: true
+      camera.togglespectator: true
+      camera.toggleflight: true
+  camera.togglecamera:
+    description: Allows you to toggle camera mode using /c.
+    default: op
+  camera.togglespectator:
+    description: Allows you to toggle spectator mode using /s.
+    default: op
+  camera.toggleflight:
+    description: Allows you to toggle flight mode using /fly.
+    default: op
